@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CBC OCR Predictor</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>CBC Lab PDF -> OCR -> XGBoost Prediction</h1>
+    <p class="muted">Upload a lab report PDF. The app runs <code>glm-ocr</code>, maps values to CBC keys, then predicts diseases.</p>
+
+    <form id="uploadForm" class="card">
+      <label for="pdfFile">Lab Report PDF</label>
+      <input id="pdfFile" name="file" type="file" accept="application/pdf" required />
+      <button type="submit">Analyze Report</button>
+    </form>
+
+    <section id="status" class="status"></section>
+
+    <section id="results" class="hidden">
+      <div class="grid">
+        <article class="card">
+          <h2>Predicted Diseases</h2>
+          <div id="predictedDiseases"></div>
+        </article>
+
+        <article class="card">
+          <h2>Extracted CBC JSON</h2>
+          <pre id="extractedJson"></pre>
+        </article>
+      </div>
+
+      <article class="card">
+        <h2>Probability Chart</h2>
+        <canvas id="chartCanvas" width="980" height="360"></canvas>
+      </article>
+
+      <article class="card">
+        <h2>Detailed Results</h2>
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th>Disease</th>
+              <th>Predicted</th>
+              <th>Probability (%)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </article>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

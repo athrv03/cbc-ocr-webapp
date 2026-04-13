@@ -1,0 +1,121 @@
+:root {
+  --bg: #f2f4f7;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --primary: #0f766e;
+  --good: #166534;
+  --bad: #b91c1c;
+  --line: #d1d5db;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top right, #d9f99d 0, var(--bg) 45%);
+  color: var(--ink);
+}
+
+.container {
+  max-width: 1060px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+h1 { margin-bottom: 8px; }
+h2 { margin-top: 0; }
+.muted { color: var(--muted); }
+.hidden { display: none; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 12px;
+  box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input[type="file"] {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 8px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.status {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  margin: 4px 6px 0 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.badge.good { background: var(--good); }
+.badge.bad { background: var(--bad); }
+
+pre {
+  margin: 0;
+  background: #0b1020;
+  color: #d1fae5;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  max-height: 280px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  padding: 8px;
+}
+
+@media (max-width: 700px) {
+  #chartCanvas { width: 100%; height: auto; }
+}
